@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://db45r40ygj667"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_5v7j8"]
+[ext_resource type="PackedScene" uid="uid://wbc35qtff83u" path="res://Player/Player.tscn" id="1_a0vkh"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_5v7j8")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("1_a0vkh")]
+position = Vector2(630, 543)
+
+[connection signal="timeout" from="Timer" to="Player" method="_on_timer_timeout"]

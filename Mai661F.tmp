@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://db45r40ygj667"]
+
+[ext_resource type="PackedScene" uid="uid://wbc35qtff83u" path="res://Player/Player.tscn" id="1_a0vkh"]
+[ext_resource type="PackedScene" uid="uid://bd7xob0axm08x" path="res://Enemy/Enemy.tscn" id="2_65kg6"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="Player" parent="." instance=ExtResource("1_a0vkh")]
+position = Vector2(630, 543)
+
+[node name="Enemy" parent="." instance=ExtResource("2_65kg6")]
+position = Vector2(792, 68)
+
+[connection signal="timeout" from="Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Enemy" method="_on_timer_timeout"]
